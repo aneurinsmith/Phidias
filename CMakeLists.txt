@@ -21,4 +21,4 @@ else()
 endif()
 
 add_executable (Phidias "entry.cpp")
-#target_link_libraries(Phidias LOG::logger)
+target_link_libraries(Phidias logger)

@@ -11,9 +11,15 @@ FetchContent_Declare(
 	GIT_REPOSITORY	https://github.com/aneurinsmith/Logger.git
 )
 
+message(STATUS "Populating logger")
 FetchContent_Populate(logger)
-FetchContent_MakeAvailable(logger)
-message("-- logger loaded")
+
+if(logger_POPULATED)
+	FetchContent_MakeAvailable(logger)
+	message(STATUS "Successfully populated logger")
+else()
+	message(FATAL_ERROR "Failed to populate logger")
+endif()
 
 add_executable (Phidias "entry.cpp")
 #target_link_libraries(Phidias LOG::logger)

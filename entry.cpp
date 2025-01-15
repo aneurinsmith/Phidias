@@ -1,8 +1,11 @@
 
 #include <stdio.h>
 
+#include "include/logger/logger.h"
+
 int main() 
 {
-	printf("Hello World!");
+	LOG::Logger l(LOG::oStreamSink());
+	LOG::print("Hello World!");
 	return 0;
 }

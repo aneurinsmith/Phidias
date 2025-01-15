@@ -12,10 +12,9 @@ FetchContent_Declare(
 )
 
 message(STATUS "Populating logger")
-FetchContent_Populate(logger)
+FetchContent_MakeAvailable(logger)
 
 if(logger_POPULATED)
-	FetchContent_MakeAvailable(logger)
 	message(STATUS "Successfully populated logger")
 else()
 	message(FATAL_ERROR "Failed to populate logger")

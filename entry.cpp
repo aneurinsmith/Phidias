@@ -1,11 +1,18 @@
 
-#include <stdio.h>
+#include "logger.h"
+#include <thread>
 
-#include "include/logger/logger.h"
+LOG::Logger logger(LOG::TRACE, LOG::consoleSink("test"));
 
 int main() 
 {
-	LOG::Logger l(LOG::oStreamSink());
+	logger.print(LOG::WARN, "test");
 	LOG::print("Hello World!");
+
+	LOG::error("ERROR");
+	LOG::warn("ERROR");
+
+	std::this_thread::sleep_for(std::chrono::seconds(100));
+
 	return 0;
 }
